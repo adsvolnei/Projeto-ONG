@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema ONG</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f9; padding: 50px; text-align: center; }
+        .caixa { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); max-width: 600px; margin: auto; }
+        h1 { color: #2c3e50; }
+        p { color: #7f8c8d; font-size: 18px; }
+        .lista { text-align: left; background: #ecf0f1; padding: 15px; border-radius: 5px; list-style-type: none; }
+        .lista li { padding: 5px 0; border-bottom: 1px solid #bdc3c7; }
+        .botao { background: #3498db; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; display: inline-block; margin-top: 20px;}
+    </style>
+</head>
+<body>
+    <div class="caixa">
+        <h1>Sistema de Gestão - ONG</h1>
+        <p>Famílias Assistidas pela Instituição:</p>
+        
+        <ul class="lista">
+            {% for familia in familias %}
+                <li><strong>{{ familia.nome_responsavel }}</strong> - CPF: {{ familia.cpf }}</li>
+            {% empty %}
+                <li>Nenhuma família cadastrada ainda.</li>
+            {% endfor %}
+        </ul>
+
+        <a href="/admin" class="botao">Acessar Painel de Controle</a>
+    </div>
+</body>
+</html>
